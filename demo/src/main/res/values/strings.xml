@@ -4,7 +4,8 @@
     <string name="app_name">SpinnerDemo</string>
     <string name="action_settings">Settings</string>
     <string name="insertitem">Insert Firefox OS</string>
-    <string name="removeitem">Remove Windows</string>
+    <string name="windows">Toggle Windows Phone</string>
+    <string name="remove">Remove All</string>
     <string name="addothers">Add Others</string>
     <string name="sort">Sort Spinner</string>
     <string-array name="mobileos">

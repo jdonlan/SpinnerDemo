@@ -16,6 +16,7 @@ import java.util.Comparator;
 public class MainActivity extends Activity {
 
     final String TAG = "Spinner Demo";
+    Spinner mOSSpinner;
     ArrayAdapter<String> mOSAdapter;
 
     @Override
@@ -23,13 +24,13 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Spinner osspinner = (Spinner) findViewById(R.id.osspinner);
+        mOSSpinner = (Spinner) findViewById(R.id.osspinner);
         ArrayList<String> osList = new ArrayList(Arrays.asList(getResources().getStringArray(R.array.mobileos)));
         mOSAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,osList);
 
-        osspinner.setAdapter(mOSAdapter);
+        mOSSpinner.setAdapter(mOSAdapter);
 
-        osspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        mOSSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Log.i(TAG, "Item Selected");
@@ -50,11 +51,15 @@ public class MainActivity extends Activity {
             }
         });
 
-        Button removeButton = (Button) findViewById(R.id.removeitembutton);
-        removeButton.setOnClickListener(new View.OnClickListener() {
+        Button toggleButton = (Button) findViewById(R.id.toggle);
+        toggleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mOSAdapter.remove("Windows Phone");
+                if(mOSAdapter.getPosition("Windows Phone") == -1) {
+                    mOSAdapter.add("Windows Phone");
+                } else {
+                    mOSAdapter.remove("Windows Phone");
+                }
             }
         });
 
@@ -64,7 +69,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 String[] others = {"Ubuntu", "Tizen"};
                 for(String other: others){
-                    mOSAdapter.add(other);
+                    if(mOSAdapter.getPosition(other) == -1) mOSAdapter.add(other);
                 }
             }
         });
@@ -74,10 +79,18 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 mOSAdapter.sort(new Comparator<String>() {
-                    public int compare(String object1, String object2) {
-                        return object1.compareTo(object2);
+                    public int compare(String a, String b) {
+                        return a.compareTo(b);
                     }
                 });
+            }
+        });
+
+        Button removeButton = (Button) findViewById(R.id.removeall);
+        removeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mOSAdapter.clear();
             }
         });
 

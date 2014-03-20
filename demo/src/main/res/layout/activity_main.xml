@@ -21,10 +21,10 @@
         android:text="@string/insertitem" />
 
     <Button
-        android:id="@+id/removeitembutton"
+        android:id="@+id/toggle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/removeitem" />
+        android:text="@string/windows" />
 
     <Button
         android:id="@+id/addothers"
@@ -37,5 +37,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/sort"/>
+
+    <Button
+        android:id="@+id/removeall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/remove"/>
 
 </LinearLayout>
