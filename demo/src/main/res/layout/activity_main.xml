@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.fullsail.spinner.demo.MainActivity">
+
+    <Spinner
+        android:id="@+id/osspinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></Spinner>
+
+    <Button
+        android:id="@+id/insertitembutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/insertitem" />
+
+    <Button
+        android:id="@+id/removeitembutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/removeitem" />
+
+    <Button
+        android:id="@+id/addothers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/addothers" />
+
+    <Button
+        android:id="@+id/sortlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sort"/>
+
+</LinearLayout>
